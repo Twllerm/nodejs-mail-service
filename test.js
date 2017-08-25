@@ -12,8 +12,8 @@ const config = {
   APP_ADRESS: 'http://example.com',
   SMTP_HOST: 'smtp.gmail.com',
   SMTP_PORT: 465,
-  SMTP_USER: 'lod.ilya.zubkov@gmail.com',
-  SMTP_PASSWORD: 'ttcase9019',
+  SMTP_USER: 'youremail',
+  SMTP_PASSWORD: 'yourpassword',
   SMTP_SECURE: true
 }
 
