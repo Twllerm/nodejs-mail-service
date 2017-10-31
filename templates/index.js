@@ -4,19 +4,21 @@
  * @param {Object} params - optional user's params for templates
  */
 
-export const userConfirmation = (link, { name, token }) => ({
-  subject: 'Регистрация в системе',
+export const registration = (link, { name, confirmationLink }) => ({
+  subject: 'Спасибо за вашу поддержку',
   body: {
     greeting: 'Здравствуйте,',
-    signature: 'C уважением',
+    signature: 'Искренне Ваш,',
     name: name,
-    intro: 'Вы оставили заявку на регистрацию в нашей системе',
+    intro: [
+      'Мы благодарим Вас за оказанное доверие и вклад в развитие НИТУ «МИСиС»!',
+      'Ознакомиться с отчетом о деятельности эндаумент-фонда НИТУ «МИСиС» за 2016 год можно пройдя по ссылке	https://drive.google.com/open?id=0B0Guhx6okkA7WF9STGFDSUhheEk'
+  ],
     action: {
-      instructions: `Администрации необходимо проверить правильность информации в вашем проифле,
-       перейдите по ссылке для подверждения почты и прохождения первого этапа верификации `,
+      instructions: `В личном кабинете на нашем сайте вы можете посмотреть информацию о ваших пожертвованиях`,
       button: {
-        text: 'Подтвердить почту',
-        link: `${link}/email-confirmation/${token}`
+        text: 'Перейти на сайт',
+        link: `${confirmationLink}`
       }
     }
   }
@@ -39,16 +41,17 @@ export const recoveryPassword = (link, { name, token }) => ({
   }
 })
 
-export const adminRegistration = (link, { token }) => ({
-  subject: 'Доступ к администрированию',
+export const changeCard = (link, { token, projectName, value }) => ({
+  subject: 'Cмена карты',
   body: {
-    signature: 'C уважением',
-    intro: 'Вам открыт доступ к администрированию',
+    signature: 'Искренне Ваш,',
+    intro: `Здравствуйте ${name}, вы оформили ежемесячное пожертвование в наш фонд для поддержки проекта "${projectName}"
+    в размере ${value} рублей, но за последний месяц с вашей банковской карты не удается снять средства`,
     action: {
-      instructions: `Для регистрации в системе перейдите по ссылке`,
+      instructions: `Мы предлагаем вам зарегистрировать новую карту`,
       button: {
-        text: 'Изменить пароль',
-        link: `${link}/registration-by-invite/${token}`
+        text: 'Сменить карту',
+        link: `${link}`
       }
     }
   }
